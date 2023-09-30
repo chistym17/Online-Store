@@ -17,7 +17,7 @@ def store(request,category_slug=None):
 
     else:
         products=product.objects.filter(is_available=True)
-        paginator=Paginator(products,1)
+        paginator=Paginator(products,2)
         page = request.GET.get('page')
 
         paged_product=paginator.get_page(page)
@@ -26,7 +26,7 @@ def store(request,category_slug=None):
 
     categories=category.objects.all()
     context={
-    'products':products,
+    'products':paged_product,
     'categories':categories
         
     }
