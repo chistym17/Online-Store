@@ -1,8 +1,8 @@
 from django.db import models
-from store.models import product
+from store.models import Product
 
 class Cart(models.Model):
-    cart_id=models.CharField(max_length=10,blank=True)
+    cart_id=models.CharField(max_length=10,blank=True,null=True)
     date_added=models.DateTimeField(auto_now_add=True)
     
     def __str__(self) -> str:
@@ -10,7 +10,7 @@ class Cart(models.Model):
     
     
 class CartItem(models.Model):
-    product=models.OneToOneField(product,on_delete=models.CASCADE)
+    product=models.OneToOneField(Product,on_delete=models.CASCADE)
     cart=models.ForeignKey(Cart,on_delete=models.CASCADE)
     quantity=models.IntegerField()
     is_available=models.BooleanField(default=True)

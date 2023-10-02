@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import product
+from .models import Product
 # Register your models here.
 
 class product_admin(admin.ModelAdmin):
@@ -7,4 +7,4 @@ class product_admin(admin.ModelAdmin):
     list_display=('product_name','price','is_available','stock','created_date','modified_date')
     
     
-admin.site.register(product,product_admin)
+admin.site.register(Product,product_admin)

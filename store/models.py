@@ -2,7 +2,7 @@ from django.db import models
 from category.models import category
 
 
-class product(models.Model):
+class Product(models.Model):
     product_name=models.CharField(max_length=100,unique=True)
     slug=models.SlugField(max_length=100,unique=True)
     description=models.CharField(max_length=220,blank=True)
